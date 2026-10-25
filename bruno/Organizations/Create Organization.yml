@@ -1,0 +1,29 @@
+info:
+  name: Create Organization
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{url}}/organizations"
+  headers:
+    - name: content-type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Northwind Agency",
+        "slug": "northwind",
+        "branding_config": {
+          "logo_url": "https://cdn.example.com/logo.png",
+          "primary_color": "#0F6E56"
+        }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

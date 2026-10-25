@@ -1,0 +1,20 @@
+name: Production
+variables:
+  - name: base_url
+    value: https://api.skillflare.co
+  - name: url
+    value: https://api.skillflare.co/v1
+  - name: api_key
+    value: ""
+    enabled: true
+    secret: true
+    description: Organization API key (sk_skillflare_...). Enter it in Bruno’s Secrets tab; Bruno stores it encrypted on this machine and does not write it here.
+  - name: candidate_id
+    value: 88219fa9-23df-4e89-9ad6-f821973f4f14
+  - name: session_id
+    value: b56b535a-3c7f-4861-b84b-77ccdb8ebd0d
+  - name: challenge_id
+    value: f980ed0d-3c10-43f8-91d0-09d5313bee41
+  - name: organization_id
+    value: 73e9322e-3a79-405b-a9d5-52237eef8165
+    description: Value of the x-organization-id header. Leave empty, and leave the header disabled, to use the organization that owns the API key. Also the path id for Update Organization.
