@@ -2,3 +2,10 @@ info:
   name: Sessions
   type: folder
   seq: 3
+
+docs: |-
+  A session is one assessment attempt. `session_status` starts at `PENDING`.
+
+  After the candidate clicks "I am ready", they have 30 minutes to start recording. If they do not, a minute cron sets `session_status` to `DROPPED_OUT` and destroys a container sandbox. That status does not run an evaluation and does not emit session webhooks.
+
+  Poll `GET /v1/sessions/:id` until the status is `COMPLETED`, `FAILED`, `DROPPED_OUT`, or `EXPIRED`.

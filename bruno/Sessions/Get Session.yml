@@ -13,3 +13,10 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: |-
+  Returns one session, including `session_status`, `recording_started_at`, and `latest_evaluation_set`.
+
+  `DROPPED_OUT` means the candidate clicked "I am ready" and did not start recording within 30 minutes. The container sandbox is destroyed. `recording_started_at` and `latest_evaluation_set` stay null, and no session webhook fires.
+
+  A session in another organization is `404`.

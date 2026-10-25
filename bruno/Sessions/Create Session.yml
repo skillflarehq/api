@@ -14,7 +14,8 @@ http:
     data: |-
       {
         "candidate_id": "{{candidate_id}}",
-        "challenge_id": "{{challenge_id}}"
+        "challenge_id": "{{challenge_id}}",
+        "expires_at": "{{expires_at}}"
       }
   auth: inherit
 
@@ -24,3 +25,8 @@ settings:
   followRedirects: true
   maxRedirects: 5
   forwardAuthorizationHeader: true
+
+docs: |-
+  Creates a session in `PENDING` and returns `201` with `id`, `invite_sent`, `lobby_url`, and `expires_at`.
+
+  The 30-minute start window begins when the candidate clicks "I am ready", not when this request succeeds. If recording does not start in that window, the session becomes `DROPPED_OUT`.

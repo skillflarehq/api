@@ -2,7 +2,7 @@
 
 A small Fastify server that accepts outbound Skillflare webhooks and prints each delivery. ngrok gives the process a temporary public HTTPS URL so Skillflare can reach your machine.
 
-Skillflare sends one `POST` per event. Headers include `Content-Type: application/json`, `User-Agent: Skillflare-Webhooks/1.0`, `X-Webhook-Event` (for example `SESSION.STARTED`), and `X-Webhook-Delivery-Id`. The JSON body has `type` and `data.session`. Any HTTP 2xx within 10 seconds counts as success. This server replies `200` with `{ "ok": true }` and logs the event header, delivery id, and body.
+Skillflare sends one `POST` per event. Headers include `Content-Type: application/json`, `User-Agent: Skillflare-Webhooks/1.0`, `X-Webhook-Event` (for example `SESSION.STARTED`), and `X-Webhook-Delivery-Id`. The JSON body has `type` and `data.session`. Any HTTP 2xx within 10 seconds counts as success. This server replies `200` with `{ "ok": true }` and logs the event header, delivery id, request headers, and body.
 
 Create the webhook on the dashboard **Webhooks** page. There is no public API for that.
 
@@ -38,7 +38,7 @@ The hostname exists only while this process is running. Anyone who has the URL c
 
 ## Read a delivery
 
-Start a session from the dashboard or the Bruno collection in `bruno/` so Skillflare emits an event. The receiver terminal prints a `webhook received` log with `event`, `deliveryId`, and the JSON body. ngrok’s inspector at `http://127.0.0.1:4040` shows the same request and the `200` response.
+Start a session from the dashboard or the Bruno collection in `bruno/` so Skillflare emits an event. The receiver terminal prints a `webhook received` log with `event`, `deliveryId`, the request headers, and the JSON body. ngrok’s inspector at `http://127.0.0.1:4040` shows the same request and the `200` response.
 
 A `200` means Skillflare will not retry that delivery. `408`, `429`, `5xx`, a timeout, or a network error is retried (up to 5 times). Other 4xx responses, including a path that is not `POST /`, are not retried.
 

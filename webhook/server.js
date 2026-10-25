@@ -14,6 +14,7 @@ app.post("/", async (request, reply) => {
     {
       event: request.headers["x-webhook-event"],
       deliveryId: request.headers["x-webhook-delivery-id"],
+      headers: request.headers,
       body: request.body,
     },
     "webhook received",
