@@ -13,9 +13,12 @@ http:
     type: json
     data: |-
       {
-        "email": "updated@example.com",
+        "email": "updateassd@example.com",
         "full_name": "Updated Example",
-        "meta": { "external_id": "ats-456" }
+        "meta": { 
+          "external_id": "ats-456",
+          "some_field": 2
+        }
       }
   auth: inherit
 

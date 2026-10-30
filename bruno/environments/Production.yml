@@ -5,7 +5,7 @@ variables:
   - name: url
     value: https://api.skillflare.co/v1
   - name: candidate_id
-    value: 7b8735e7-3e8d-45f9-94e6-afd63ba9e46f
+    value: 6c015f6a-712f-465d-8aff-e090d1817e11
   - name: session_id
     value: b56b535a-3c7f-4861-b84b-77ccdb8ebd0d
   - name: challenge_id
