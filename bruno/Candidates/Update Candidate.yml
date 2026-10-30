@@ -1,0 +1,36 @@
+info:
+  name: Update Candidate
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: "{{url}}/candidates/{{candidate_id}}"
+  headers:
+    - name: content-type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "email": "updated@example.com",
+        "full_name": "Updated Example",
+        "meta": { "external_id": "ats-456" }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true
+
+docs: |-
+  Partially updates a candidate linked to your organization. Send at least one of `email`, `full_name`, or `meta`. Unknown fields are rejected.
+
+  `meta` replaces the opaque JSON object on the organization–candidate link (`null` → `{}`).
+
+  `email` and `full_name` update invite identity on unlinked stubs only. After the candidate has signed up (`profile_id` set), changing them returns `409`. A colliding invite email also returns `409`.
+
+  Response is the full candidate resource: `id`, `created_at`, `full_name`, `email`, and `meta`.

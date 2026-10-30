@@ -13,3 +13,8 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: |-
+  Returns one candidate: `id`, `created_at`, `full_name`, `email`, and `meta`.
+
+  `meta` is the opaque JSON object stored on the organization–candidate link (defaults to `{}`). A candidate linked to another organization is `404`.

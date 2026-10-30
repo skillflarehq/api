@@ -15,7 +15,7 @@ settings:
   maxRedirects: 5
 
 docs: |-
-  Returns one session, including `session_status`, `recording_started_at`, and `latest_evaluation_set`.
+  Returns one session, including `session_status`, `candidate_full_name`, `candidate_email`, `candidate_meta` (opaque partner metadata from create-candidate `meta`, or `{}`), `recording_started_at`, and `latest_evaluation_set`.
 
   `DROPPED_OUT` means the candidate clicked "I am ready" and did not start recording within 30 minutes. The container sandbox is destroyed. `recording_started_at` and `latest_evaluation_set` stay null, and no session webhook fires.
 

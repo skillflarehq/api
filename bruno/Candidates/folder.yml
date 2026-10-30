@@ -2,3 +2,8 @@ info:
   name: Candidates
   type: folder
   seq: 2
+
+docs: |-
+  Candidates are people linked to your organization. Each candidate resource includes `meta`: opaque partner JSON on the organization–candidate link (defaults to `{}`).
+
+  Set `meta` on create; list and get echo it back. PATCH can update `email`, `full_name`, and/or `meta` (replace). Invite `email` / `full_name` apply only while the candidate is still an unlinked stub; after signup, only `meta` can change. Webhooks include `candidate_full_name`, `candidate_email`, and the same `meta` value as `candidate_meta` on `data.session`. A re-create (`200`) does not overwrite existing `meta`.

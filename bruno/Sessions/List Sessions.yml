@@ -24,6 +24,6 @@ settings:
 docs: |-
   Lists sessions for the active organization.
 
-  Each item includes `session_status`. `PENDING` means the candidate has not started. `DROPPED_OUT` means they clicked "I am ready" and did not start recording within 30 minutes. `EXPIRED` means a `PENDING` session passed `expires_at`.
+  Each item includes `session_status`, `candidate_full_name`, `candidate_email`, and `candidate_meta` (opaque partner metadata from create-candidate `meta`, or `{}`). `PENDING` means the candidate has not started. `DROPPED_OUT` means they clicked "I am ready" and did not start recording within 30 minutes. `EXPIRED` means a `PENDING` session passed `expires_at`.
 
   Poll until `COMPLETED`, `FAILED`, `DROPPED_OUT`, or `EXPIRED`. `DROPPED_OUT` and `EXPIRED` do not include an evaluation.

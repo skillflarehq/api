@@ -23,3 +23,8 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: |-
+  Lists candidates for the active organization as `{ data, meta }`. The envelope `meta` is pagination only (`limit`, `offset`, `count`).
+
+  Each item includes `id`, `created_at`, `full_name`, `email`, and its own `meta` object for partner metadata (defaults to `{}`). That item `meta` is unrelated to the pagination envelope.

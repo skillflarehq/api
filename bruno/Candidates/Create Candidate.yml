@@ -11,7 +11,8 @@ http:
     data: |-
       {
         "email": "beppe@example.com",
-        "full_name": "Raffaello Example"
+        "full_name": "Raffaello Example",
+        "meta": { "external_id": "ats-123" }
       }
   auth: inherit
 
@@ -21,3 +22,10 @@ settings:
   followRedirects: true
   maxRedirects: 5
   forwardAuthorizationHeader: true
+
+docs: |-
+  Creates or links a candidate. `email` and `full_name` are required. `meta` is optional opaque JSON for partner metadata (omitted or `null` → `{}`; must be an object).
+
+  `201` when newly linked. `200` when that email is already linked (existing `meta` is left unchanged).
+
+  Response includes `id`, `created_at`, `full_name`, `email`, and `meta`. Use `id` as `candidate_id` when creating a session. Webhooks echo `full_name` / `email` as `candidate_full_name` / `candidate_email`, and the same `meta` object as `candidate_meta`, on `data.session`.
