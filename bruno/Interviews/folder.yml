@@ -1,0 +1,11 @@
+info:
+  name: Interviews
+  type: folder
+  seq: 3
+
+docs: |-
+  An interview is one assessment attempt. `interview_status` starts at `PENDING`.
+
+  After the user clicks "I am ready", they have 30 minutes to start recording. If they do not, a minute cron sets `interview_status` to `DROPPED_OUT` and destroys a container sandbox. That status does not run an evaluation and does not emit interview webhooks.
+
+  Poll `GET /v1/interviews/:id` until the status is `COMPLETED`, `FAILED`, `DROPPED_OUT`, or `EXPIRED`.

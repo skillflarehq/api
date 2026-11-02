@@ -1,11 +1,11 @@
 info:
-  name: Create Session
+  name: Create Interview
   type: http
   seq: 3
 
 http:
   method: POST
-  url: "{{url}}/sessions"
+  url: "{{url}}/interviews"
   headers:
     - name: content-type
       value: application/json
@@ -13,7 +13,7 @@ http:
     type: json
     data: |-
       {
-        "candidate_id": "{{candidate_id}}",
+        "user_id": "{{user_id}}",
         "challenge_id": "{{challenge_id}}",
         "expires_at": "{{expires_at}}"
       }
@@ -27,6 +27,6 @@ settings:
   forwardAuthorizationHeader: true
 
 docs: |-
-  Creates a session in `PENDING` and returns `201` with `id`, `invite_sent`, `lobby_url`, and `expires_at`.
+  Creates an interview in `PENDING` and returns `201` with `id`, `invite_sent`, `lobby_url`, and `expires_at`.
 
-  The 30-minute start window begins when the candidate clicks "I am ready", not when this request succeeds. If recording does not start in that window, the session becomes `DROPPED_OUT`.
+  The 30-minute start window begins when the user clicks "I am ready", not when this request succeeds. If recording does not start in that window, the interview becomes `DROPPED_OUT`.

@@ -1,0 +1,31 @@
+info:
+  name: Create User
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{url}}/users"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "beppe@example.com",
+        "full_name": "Raffaello Example",
+        "meta": { "external_id": "ats-123" }
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: true
+
+docs: |-
+  Creates or links a user. `email` and `full_name` are required. `meta` is optional opaque JSON for partner metadata (omitted or `null` → `{}`; must be an object).
+
+  `201` when newly linked. `200` when that email is already linked (existing `meta` is left unchanged).
+
+  Response includes `id`, `created_at`, `full_name`, `email`, and `meta`. Use `id` as `user_id` when creating an interview. Webhooks echo `full_name` / `email` as `user_full_name` / `user_email`, and the same `meta` object as `user_meta`, on `data.interview`.
