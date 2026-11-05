@@ -28,4 +28,4 @@ docs: |-
 
   `201` when newly linked. `200` when that email is already linked (existing `meta` is left unchanged).
 
-  Response includes `id`, `created_at`, `full_name`, `email`, and `meta`. Use `id` as `user_id` when creating an interview. Webhooks echo `full_name` / `email` as `user_full_name` / `user_email`, and the same `meta` object as `user_meta`, on `data.interview`.
+  Response includes `id`, `created_at`, `full_name`, `email`, and `meta`. Use `id` as `user_id` when creating a session. Webhooks echo `full_name` / `email` as `user_full_name` / `user_email`, and the same `meta` object as `user_meta`, on `data.session`.

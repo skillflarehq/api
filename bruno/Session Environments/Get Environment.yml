@@ -13,3 +13,8 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+
+docs: |-
+  Returns one environment: `id`, `created_at`, `name`, `operating_system`, `oci_url`, `description`, and `tools`.
+
+  `id` must be a UUID. Unknown or deleted environments are `404`.

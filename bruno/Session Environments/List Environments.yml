@@ -21,3 +21,8 @@ settings:
   followRedirects: true
   maxRedirects: 5
   forwardAuthorizationHeader: true
+
+docs: |-
+  Lists environments as `{ data, meta }` with pagination (`limit`, `offset`, `count`).
+
+  Each item includes `id`, `created_at`, `name`, `operating_system`, `oci_url`, `description`, and `tools` (`id`, `tool_id`, `name`). Copy an `id` into `environment_id` for Get Environment.
