@@ -4,6 +4,6 @@ info:
   seq: 6
 
 docs: |-
-  An environment is a desktop workspace for the container tier (`os_images`): name, operating system, OCI image URL, description, and installed tools.
+  An environment is a desktop workspace for the container tier (`os_images`): name, operating system, description, and installed tools.
 
   Local-tier challenges do not use these environments. List and get are read-only on the public API.
